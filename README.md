@@ -10,3 +10,16 @@ The major resources gathered here include the following packages,
 - [silx](https://github.com/silx-kit/silx)
 - [deepdish](https://github.com/uchicago-cs/deepdish)
 - [h5io](https://github.com/h5io/h5io)
+
+## Installation
+
+1. Install and upgrade to the latest updates
+
+```
+pip install --upgrade git+https://github.com/RealPolitiX/hdfio.git
+```
+2. Install the latest build from PyPI
+
+```
+pip install hdfio
+```

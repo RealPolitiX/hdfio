@@ -21,11 +21,11 @@ setup(
     name='hdfio',
     version=__version__,
     description='All the useful python I/O utility functions for HDF5 files',
-    long_description=long_description,
     long_description_content_type='text/markdown',
+    long_description=long_description,
     url='https://github.com/RealPolitiX/hdfio',
     download_url='https://github.com/RealPolitiX/hdfio/tarball/' + __version__,
-    license='BSD',
+    license='MIT',
     classifiers=[
       'Development Status :: 3 - Alpha',
       'Intended Audience :: Developers',

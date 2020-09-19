@@ -23,5 +23,5 @@ The major resources gathered here include the following packages that covers gen
 
 
 2. Install the latest build from PyPI
-<pre><code class="console"> spip install hdfio
+<pre><code class="console"> pip install hdfio
 </code></pre>

@@ -1,5 +1,5 @@
 # hdfio
-![GitHub license](https://img.shields.io/github/license/RealPolitiX/hdfio)
+![GitHub license](https://img.shields.io/github/license/RealPolitiX/hdfio) ![Downloads](https://pepy.tech/badge/hdfio) ![PyPI version](https://badge.fury.io/py/hdfio.svg)
 
 All the useful python I/O utility functions for HDF5 files
 

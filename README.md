@@ -18,11 +18,11 @@ The major resources gathered here include the following packages that covers gen
 
 1. Install and upgrade to the latest updates
 
-```
+​```
 pip install --upgrade git+https://github.com/RealPolitiX/hdfio.git
-```
+​```
 2. Install the latest build from PyPI
 
-```
+​```
 pip install hdfio
-```
+​```

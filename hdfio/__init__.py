@@ -3,6 +3,6 @@
 
 __version_info__ = ('0', '2', '1')
 __version__ = '.'.join(__version_info__)
-__author__ = ['R. Patrick Xian', 'others']
+__author__ = 'R. Patrick Xian, others'
 
 from . import dict_io

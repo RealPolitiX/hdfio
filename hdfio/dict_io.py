@@ -19,6 +19,8 @@ def h5_to_dict(*args, **kwargs):
     **kwargs: keyword arguments
         source: str/func | 'silx'
             Method for conversion from HDF5 to dictionary. Choose between 'silx', 'deepdish', or 'h5io' to use the respective built-in method from these packages. Alternatively, a user-defined function can also be used.
+        fconv: func | None
+            User-defined function to convert HDF5 to dictionary.
     """
     
     # The default loading method of HDF5 is from ``silx.io``.
@@ -121,6 +123,8 @@ def dict_to_h5(*args, **kwargs):
     **kwargs: keyword arguments
         source: str/func | 'silx'
             Method for conversion from dictionary to HDF5. Choose between 'silx', 'deepdish', or 'h5io' to use the respective built-in method from these packages. Alternatively, a user-defined function can also be used.
+        fconv: func | None
+            User-defined function to save a dictionary to an HDF5 file.
     """
 
     source = kwargs.pop('source', 'silx')

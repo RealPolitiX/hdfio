@@ -1,19 +1,20 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from . import dict_io as io
 import numpy as np
 from h5py import File
 import json
-from silx.io.dictdump import dicttoh5, h5todict, dicttojson
+from silx.io.dictdump import dicttojson
 
 
 # Conversion functions
 
-def h5_to_json(load_addr, json_dir, indent=None, mode='w', **kwargs):
+def h5_to_json(load_addr, json_dir, indent=None, mode='w', fconv=io.h5_to_dict, **kwargs):
     """ Convert HDF5 to json via a dictionary.
     """
     
-    dct = h5todict(load_addr, **kwargs)
+    dct = fconv(load_addr, **kwargs)
     
     # Turn numpy arrays json-serializable
     for dk, dv in dct.items():
@@ -23,11 +24,11 @@ def h5_to_json(load_addr, json_dir, indent=None, mode='w', **kwargs):
     dicttojson(dct, json_dir, indent, mode)
 
 
-def json_to_h5(load_addr, h5_dir, **kwargs):
+def json_to_h5(load_addr, h5_dir, fconv=io.dict_to_h5, **kwargs):
     """ Convert json to HDF5 via dictionary (minimal version).
     """
 
     with open(load_addr, 'r') as jsn:
         dct = json.load(jsn)
 
-    dicttoh5(dct, h5_dir, **kwargs)
+    fconv(dct, h5_dir, **kwargs)

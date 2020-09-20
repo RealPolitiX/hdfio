@@ -12,8 +12,16 @@ import h5io
 
 def h5_to_dict(*args, **kwargs):
     """ Convert a multilevel HDF5 file to a multilevel dictionary.
+
+    **Parameters**\n
+    *args: non-keyword arguments
+        Arguments applied to to file conversion function.
+    **kwargs: keyword arguments
+        source: str/func | 'silx'
+            Method for conversion from HDF5 to dictionary. Choose between 'silx', 'deepdish', or 'h5io' to use the respective built-in method from these packages. Alternatively, a user-defined function can also be used.
     """
     
+    # The default loading method of HDF5 is from ``silx.io``.
     source = kwargs.pop('source', 'silx')
 
     if source == 'silx':
@@ -22,6 +30,15 @@ def h5_to_dict(*args, **kwargs):
         return dd.io.load(*args, **kwargs)
     elif source == 'h5io':
         return h5io.read_hdf5(*args, **kwargs)
+    else:
+        fconv = kwargs.pop('fconv', None)
+        if fconv is None:
+            raise Exception('Requires a valid function/method for file loading!')
+        else:
+            try:
+                return fconv(*args, **kwargs)
+            except:
+                raise Exception('Requires a valid function/method for file loading!')
     
 
 def loadH5Parts(filename, content, outtype='dict', alias=None):
@@ -97,6 +114,13 @@ def loadHDF(load_addr, hierarchy='flat', groups='all', track_order=True, dtyp='f
 
 def dict_to_h5(*args, **kwargs):
     """ Convert a multilevel dictionary to a multilevel HDF5 file.
+
+    **Parameters**\n
+    *args: non-keyword arguments
+        Arguments applied to to file conversion function.
+    **kwargs: keyword arguments
+        source: str/func | 'silx'
+            Method for conversion from dictionary to HDF5. Choose between 'silx', 'deepdish', or 'h5io' to use the respective built-in method from these packages. Alternatively, a user-defined function can also be used.
     """
 
     source = kwargs.pop('source', 'silx')
@@ -107,6 +131,15 @@ def dict_to_h5(*args, **kwargs):
         return dd.io.save(*args, **kwargs)
     elif source == 'h5io':
         return h5io.write_hdf5(*args, **kwargs)
+    else:
+        fconv = kwargs.pop('fconv', None)
+        if fconv is None:
+            raise Exception('Requires a valid function/method for file saving!')
+        else:
+            try:
+                return fconv(*args, **kwargs)
+            except:
+                raise Exception('Requires a valid function/method for file saving!')
 
 
 def saveHDF(*groups, save_addr='./file.h5', track_order=True, **kwds):

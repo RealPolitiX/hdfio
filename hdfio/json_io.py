@@ -24,11 +24,11 @@ def h5_to_json(load_addr, json_dir, indent=None, mode='w', fconv=io.h5_to_dict, 
     dicttojson(dct, json_dir, indent, mode)
 
 
-def json_to_h5(load_addr, h5_dir, fconv=io.dict_to_h5, **kwargs):
+def json_to_h5(load_addr, h5_dir, fconv=io.dict_to_h5, loadkwargs={}, **kwargs):
     """ Convert json to HDF5 via dictionary (minimal version).
     """
 
     with open(load_addr, 'r') as jsn:
-        dct = json.load(jsn)
+        dct = json.load(jsn, **loadkwargs)
 
     fconv(dct, h5_dir, **kwargs)

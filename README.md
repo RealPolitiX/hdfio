@@ -8,7 +8,7 @@ Writing this software package aggregator is motivated by the multitude of read/w
 
 
 ## Resources
-The major resources gathered here include the following packages that covers generic I/O and interconversions between HDF and other key-value-paired file formats, such as **dictionary** (Python), **json**, **mat** (MATLAB).
+The major resources gathered here include the following packages that covers generic I/O and interconversions between HDF and other popular key-value-pair file formats, such as **dictionary** (Python), **json**, **mat** (MATLAB).
 
 - [h5py](https://github.com/h5py/h5py)
 - [silx](https://github.com/silx-kit/silx)
